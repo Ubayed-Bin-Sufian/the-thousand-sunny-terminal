@@ -1,3 +1,5 @@
+// Sole Responsibility: Single source of truth for all shared TypeScript interfaces and type aliases across the game architecture.
+
 export type SystemName =
   | 'engine_room'
   | 'navigation'
@@ -44,4 +46,9 @@ export interface LeaderboardEntry {
   readonly timeSeconds: number;
   readonly commandCount: number;
   readonly submittedAt: string;   // ISO 8601
+}
+
+export interface CommandEvent {
+  readonly action: GameAction;
+  readonly timestamp: number;
 }
