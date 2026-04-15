@@ -3,12 +3,12 @@
 import { GameAction } from '../types';
 
 /**
- * Sanitizes input by removing HTML tags and zero-width characters to prevent simple XSS/injections.
+ * Sanitizes input by removing HTML delimiters and zero-width characters to prevent simple XSS/injections.
  * Only allows basic printable ASCII/Unicode characters typical in terminal commands.
  */
 export const sanitize = (input: string): string => {
   return input
-    .replace(/<[^>]*>?/gm, '') // Remove HTML tags
+    .replace(/[<>]/g, '') // Remove HTML tag delimiters
     .replace(/[\u200B-\u200D\uFEFF]/g, '') // Remove zero-width characters
     .trim();
 };
