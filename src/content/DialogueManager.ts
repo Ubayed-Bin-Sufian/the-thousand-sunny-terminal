@@ -23,6 +23,7 @@ export const DIALOGUE_TREES: Record<CrewMember, DialogueLine[]> = {
   chopper: [],
   robin: [],
   sanji: [],
+  franky: [],
 };
 
 /**

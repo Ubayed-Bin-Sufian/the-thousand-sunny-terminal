@@ -20,6 +20,7 @@ export const DIALOGUE_TREES = {
     chopper: [],
     robin: [],
     sanji: [],
+    franky: [],
 };
 /**
  * Pure utility function to fetch dialogue based on full substring match inside the text

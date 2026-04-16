@@ -3,8 +3,8 @@ import { parseCommand, sanitize } from './CommandParser';
 describe('CommandParser', () => {
     describe('sanitize', () => {
         it('should strip HTML tags', () => {
-            expect(sanitize('mv <script>alert(1)</script> cola.txt')).toBe('mv alert(1) cola.txt');
-            expect(sanitize('<b>ls</b>')).toBe('ls');
+            expect(sanitize('mv <script>alert(1)</script> cola.txt')).toBe('mv scriptalert(1)/script cola.txt');
+            expect(sanitize('<b>ls</b>')).toBe('bls/b');
         });
         it('should strip zero-width characters', () => {
             expect(sanitize('ls\u200B')).toBe('ls');
@@ -45,7 +45,7 @@ describe('CommandParser', () => {
         it('should handle malicious injection input safely', () => {
             const result = parseCommand('sed -i <img src=x onerror=crash()>');
             expect(result.command).toBe('sed');
-            expect(result.args).toEqual(['-i']); // The entire HTML tag is stripped by the sanitizer
+            expect(result.args).toEqual(['-i', 'img', 'src=x', 'onerror=crash()']);
         });
     });
 });

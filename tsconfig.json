@@ -4,6 +4,8 @@
     "module": "ESNext",
     "moduleResolution": "bundler",
     "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "esModuleInterop": true,
     "noUncheckedIndexedAccess": true,
     "noImplicitReturns": true,
     "exactOptionalPropertyTypes": true,

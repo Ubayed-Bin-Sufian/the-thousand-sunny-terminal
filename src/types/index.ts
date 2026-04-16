@@ -8,7 +8,7 @@ export type SystemName =
   | 'library'
   | 'kitchen';
 
-export type CrewMember = 'luffy' | 'nami' | 'usopp' | 'chopper' | 'robin' | 'sanji';
+export type CrewMember = 'luffy' | 'nami' | 'usopp' | 'chopper' | 'robin' | 'sanji' | 'franky';
 
 export interface ShipState {
   readonly systems: Record<SystemName, SystemStatus>;
